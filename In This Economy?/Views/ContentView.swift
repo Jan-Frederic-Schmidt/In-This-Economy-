@@ -29,7 +29,6 @@ struct ContentView: View {
             
             Text("Inflation data provided by www.statbureau.org")
                 .padding(.top)
-            Text("Copyright © 2026 Jan Frédéric Schmidt")
         }
         .navigationTitle("Inflation Calculator")
         .padding(.horizontal)

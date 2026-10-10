@@ -7,13 +7,29 @@ import SwiftUI
 
 @main
 struct In_This_Economy_App: App {
+    @Environment(\.openWindow) var openWindow
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .frame(minWidth: 300, minHeight: 300)
         }
         .windowStyle(.hiddenTitleBar)
-        .windowBackgroundDragBehavior(.enabled)
         .defaultSize(width: 400, height: 400)
-    }
-}
+        .commands {
+                    CommandGroup(replacing: CommandGroupPlacement.appInfo) {
+                        Button("About In This Economy") {
+                            openWindow(id: "about")
+                        }
+                    }
+                }
+                
+                Window("About In This Economy", id: "about") {
+                    AboutView()
+                        .containerBackground(.ultraThickMaterial, for: .window)
+                        .windowMinimizeBehavior(.disabled)
+                        .windowFullScreenBehavior(.disabled)
+                }
+                .windowResizability(.contentSize)
+            }
+        }
