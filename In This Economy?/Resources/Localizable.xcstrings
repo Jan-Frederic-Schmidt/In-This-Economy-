@@ -7,10 +7,19 @@
     "About In This Economy" : {
 
     },
+    "Adjust any price for inflation" : {
+
+    },
+    "Adjust for inflation" : {
+
+    },
     "Belarus" : {
 
     },
     "Brazil" : {
+
+    },
+    "Calculate" : {
 
     },
     "Canada" : {
@@ -19,10 +28,10 @@
     "Choose a start date" : {
 
     },
-    "Choose an end date" : {
+    "Choose a starting amount, a country and start & end dates and click on \"calculate\"." : {
 
     },
-    "Click me" : {
+    "Choose an end date" : {
 
     },
     "Enter original amount" : {
@@ -34,22 +43,31 @@
     "Eurozone" : {
 
     },
+    "Float" : {
+
+    },
     "France" : {
 
     },
     "Germany" : {
 
     },
+    "Get the inflation rate" : {
+
+    },
+    "Get the inflation rate for a country and time frame" : {
+
+    },
     "Greece" : {
+
+    },
+    "Hello, world" : {
 
     },
     "In This Economy?" : {
 
     },
     "India" : {
-
-    },
-    "Inflation Calculator" : {
 
     },
     "Inflation data provided by www.statbureau.org" : {
@@ -64,7 +82,19 @@
     "Kazakhstan" : {
 
     },
+    "Keep this window floating above all other windows, making it easier to find it or copy results." : {
+
+    },
+    "Keep window floating above other windows" : {
+
+    },
+    "Keep windows floating" : {
+
+    },
     "Mexico" : {
+
+    },
+    "Nothing calculated yet" : {
 
     },
     "Pick a country" : {
@@ -89,6 +119,9 @@
 
     },
     "United States" : {
+
+    },
+    "What do you want to do?" : {
 
     }
   },
