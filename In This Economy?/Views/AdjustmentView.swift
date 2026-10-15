@@ -14,17 +14,23 @@
 //    with this program; if not, write to the Free Software Foundation, Inc.,
 //    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+import Foundation
 import SwiftUI
 
-struct CalculatorView: View {
+struct AdjustmentView: View {
     @State private var viewModel = ViewModel()
+    var formatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }
     
     var body: some View {
         VStack {
             HStack {
                 VStack(alignment: .leading) {
                     if #available(macOS 27.0, *) {
-                        TextField("Enter original amount", text: $viewModel.originalAmount)
+                        TextField("Enter amount", value: $viewModel.originalAmount, format: .number.decimalSeparator(strategy: .automatic))
                     }
                     
                     Picker("Pick a country", selection: $viewModel.country) {
@@ -33,7 +39,7 @@ struct CalculatorView: View {
                         }
                     }
                     
-                    DatePicker("Choose a start date", selection: $viewModel.startDate, in: Date(timeIntervalSince1970: -1_796_083_200)..., displayedComponents: .date)
+                    DatePicker("Choose a start date", selection: $viewModel.startDate, in: viewModel.country.oldestDate..., displayedComponents: .date)
                     
                     DatePicker("Choose an end date", selection: $viewModel.endDate, displayedComponents: .date)
                     
@@ -49,11 +55,22 @@ struct CalculatorView: View {
                         ContentUnavailableView("Nothing calculated yet", systemImage: "nosign", description: Text("Choose a starting amount, a country and start & end dates and click on \"calculate\"."))
                     } else {
                         Text(viewModel.calculatedAmount)
-                            .font(.system(size: 50)).bold()
+                            .font(.system(size: 45)).bold()
+                            .textSelection(.enabled)
+                            
                     }
                 }
                 .frame(width: 275, height: 200)
                 .background(.regularMaterial, in: .rect(cornerRadius: 20))
+                .overlay(alignment: .topTrailing) {
+                    Button(action: viewModel.copyToClipboard) {
+                        Image(systemName: "rectangle.portrait.on.rectangle.portrait")
+                            .font(.system(size: 14))
+                            .offset(x: -5, y: 5)
+                    }
+                    .buttonStyle(.plain)
+                    .help("Copy")
+                }
             }
             
             Text("Inflation data provided by www.statbureau.org")
@@ -65,29 +82,6 @@ struct CalculatorView: View {
 }
 
 #Preview {
-    CalculatorView()
+    AdjustmentView()
 }
 
-//VStack(alignment: .leading) {
-//    Picker("Pick a country", selection: $viewModel.country) {
-//        ForEach(viewModel.inflationCalculator.countryList, id: \.self) {
-//            Text($0.displayName)
-//        }
-//    }
-//    
-//    DatePicker("Choose a start date", selection: $viewModel.startDate, displayedComponents: .date)
-//    
-//    DatePicker("Choose an end date", selection: $viewModel.endDate, displayedComponents: .date)
-//    
-//    TextField("Enter original amount", text: $viewModel.originalAmount)
-//    
-//    Button("Click me", action: viewModel.getPrice)
-//        .buttonStyle(.borderedProminent)
-//    
-//    Text(viewModel.calculatedAmount)
-//    
-//    Text("Inflation data provided by www.statbureau.org")
-//        .padding(.top)
-//}
-//.navigationTitle("Inflation Calculator")
-//.padding(.horizontal)

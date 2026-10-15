@@ -15,39 +15,37 @@
 //    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import Foundation
+import SwiftUI
 
-extension CalculatorView {
+extension AdjustmentView {
     @Observable
     class ViewModel {
-        var inflationCalculator = InflationCalculator()
         var country: Country = .unitedStates
         
         var startDate = Date.now
         var endDate = Date.now
-        var originalAmount = "100" {
-            didSet {
-                guard let double = Double(originalAmount) else {
-                    // do something
-                    return
-                }
-            }
-        }
+        var originalAmount = 100.0
         
         var calculatedAmount = ""
         
         func getPrice() {
-            inflationCalculator.country = country.identifier 
-            inflationCalculator.start = startDate.ISO8601Format(.iso8601Date(timeZone: .current))
-            inflationCalculator.end = endDate.ISO8601Format(.iso8601Date(timeZone: .current))
-            inflationCalculator.amount = originalAmount
+            InflationCalculator.shared.country = country
+            InflationCalculator.shared.start = startDate
+            InflationCalculator.shared.end = endDate
+            InflationCalculator.shared.amount = originalAmount
             
             Task {
                 do {
-                    calculatedAmount = try await inflationCalculator.calculatePrice()
+                    (calculatedAmount, _) = try await InflationCalculator.shared.calculatePrice()
                 } catch {
                     calculatedAmount = "Oops. something went wrong"
                 }
             }
+        }
+        
+        func copyToClipboard() {
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general.setString(calculatedAmount, forType: .string)
         }
     }
 }

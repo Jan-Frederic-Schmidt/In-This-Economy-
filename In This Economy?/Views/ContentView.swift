@@ -19,17 +19,17 @@ import SwiftUI
 
 struct ContentView: View {
     enum Screens {
-        case calculator, rate
+        case adjust, rate
     }
 
-    @State private var screen = Screens.calculator
+    @State private var screen = Screens.adjust
     @State var isFloating = false
     
     var body: some View {
         Group {
             switch screen {
-            case .calculator:
-                CalculatorView()
+            case .adjust:
+                AdjustmentView()
             case .rate:
                 Text("Hello, world")
             }
@@ -38,7 +38,7 @@ struct ContentView: View {
             ToolbarItem(placement: .navigation) {
                 Picker("What do you want to do?", selection: $screen) {
                     Label("Adjust for inflation", systemImage: "dollarsign.circle.fill")
-                        .tag(Screens.calculator)
+                        .tag(Screens.adjust)
                         .help("Adjust any price for inflation")
                     
                     Label("Get the inflation rate", systemImage: "chart.line.uptrend.xyaxis")

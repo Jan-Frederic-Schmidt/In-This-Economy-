@@ -17,28 +17,25 @@
 import Foundation
 
 struct InflationCalculator {
+    static var shared = InflationCalculator()
     
     private let baseURL = "https://www.statbureau.org"
+    var country = Country.unitedStates
+    var start = Date()
+    var end = Date()
+    var amount = 100.0
+    var calculatedPrice: (String?, Double?) = (nil, nil)
     
-    var country = ""
-    var start = ""
-    var end = ""
-    var amount = ""
-    
-    private enum CalculationError: Error {
-        case urlError, decodingError, downloadingError
-    }
-    
-    func calculatePrice() async throws -> String{
+    mutating func calculatePrice() async throws -> (String, Double) {
         var data = Data()
         
         guard let url = URL(string: "\(baseURL)/calculate-inflation-price-json") else { throw CalculationError.urlError }
         var components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
         components.queryItems = [
-            .init(name: "country", value: country),
-            .init(name: "start", value: start),
-            .init(name: "end", value: end),
-            .init(name: "amount", value: amount),
+            .init(name: "country", value: country.identifier),
+            .init(name: "start", value: start.ISO8601Format(.iso8601Date(timeZone: .current))),
+            .init(name: "end", value: end.ISO8601Format(.iso8601Date(timeZone: .current))),
+            .init(name: "amount", value: String(amount)),
             .init(name: "format", value: "true")
         ]
         
@@ -51,9 +48,20 @@ struct InflationCalculator {
         }
         
         do {
-             return try JSONDecoder().decode(String.self, from: data)
+            let str = try JSONDecoder().decode(String.self, from: data)
+            print(str)
+            var duplicateStr = str
+            duplicateStr.unicodeScalars.removeAll { !CharacterSet.decimalDigits.contains($0) && $0 != "." }
+            print(duplicateStr)
+            let double = try Double(string: duplicateStr)
+            calculatedPrice = (str, double)
+            return (str, double)
         } catch {
             throw CalculationError.decodingError
         }
+    }
+    
+    private enum CalculationError: Error {
+        case urlError, decodingError, downloadingError
     }
 }

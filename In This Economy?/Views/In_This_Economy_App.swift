@@ -23,6 +23,15 @@ struct In_This_Economy_App: App {
     @State var isFloating = false
     
     var body: some Scene {
+        Window("About In This Economy", id: "about") {
+            AboutView()
+                .containerBackground(.ultraThickMaterial, for: .window)
+                .windowMinimizeBehavior(.disabled)
+                .windowFullScreenBehavior(.disabled)
+                .windowResizeBehavior(.disabled)
+        }
+            .windowResizability(.contentSize)
+        
         WindowGroup {
             ContentView()
                 .windowResizeBehavior(.disabled)
@@ -35,22 +44,24 @@ struct In_This_Economy_App: App {
         .windowLevel(isFloating ? .floating : .normal)
         .defaultSize(width: 400, height: 300)
         .commands {
-                    CommandGroup(replacing: CommandGroupPlacement.appInfo) {
-                        Button("About In This Economy") {
-                            openWindow(id: "about")
-                        }
+            CommandGroup(replacing: CommandGroupPlacement.appInfo) {
+                Button("About In This Economy") {
+                    openWindow(id: "about")
+                }
+            }
+            
+            CommandGroup(after: .pasteboard) {
+                Button("Copy output") {
+                    let (str, _) = InflationCalculator.shared.calculatedPrice
+                    if let str {
+                        NSPasteboard.general.clearContents()
+                        NSPasteboard.general.setString(str, forType: .string)
                     }
                 }
-                
-                Window("About In This Economy", id: "about") {
-                    AboutView()
-                        .containerBackground(.ultraThickMaterial, for: .window)
-                        .windowMinimizeBehavior(.disabled)
-                        .windowFullScreenBehavior(.disabled)
-                        .windowResizeBehavior(.disabled)
-                }
-                .windowResizability(.contentSize)
+                .keyboardShortcut("C", modifiers: [.option, .command])
             }
+        }
+    }
     
     init() {
         do {
