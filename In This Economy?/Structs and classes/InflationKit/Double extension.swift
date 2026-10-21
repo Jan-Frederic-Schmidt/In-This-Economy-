@@ -1,22 +1,22 @@
+////
+////  Double extension.swift
+////  In This Economy?
+////
+////  Created by Jan Schmidt on 15.10.26.
+////
 //
-//  Double extension.swift
-//  In This Economy?
+//import Foundation
 //
-//  Created by Jan Schmidt on 15.10.26.
+//extension Double {
+//    init(string: String) throws {
+//        guard let temporary = Double(string) else {
+//            throw ConvertingError.notARealNumber
+//        }
+//        
+//        self = temporary
+//    }
+//}
 //
-
-import Foundation
-
-extension Double {
-    init(string: String) throws {
-        guard let temporary = Double(string) else {
-            throw ConvertingError.notARealNumber
-        }
-        
-        self = temporary
-    }
-}
-
-enum ConvertingError: Error {
-    case notARealNumber
-}
+//enum ConvertingError: Error {
+//    case notARealNumber
+//}

@@ -6,8 +6,16 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		381745513089391B00821CDC /* In_This_Economy_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381745473089391B00821CDC /* In_This_Economy_App.swift */; };
+		3817455C308948B000821CDC /* InflationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3817455B308948B000821CDC /* InflationKit */; };
+		3817455F308949A400821CDC /* InflationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3817455E308949A400821CDC /* InflationKit */; };
+		3817456230894A0D00821CDC /* InflationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3817456130894A0D00821CDC /* InflationKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		380D40DD307A8DA400CB2784 /* In This Economy?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "In This Economy?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		381745473089391B00821CDC /* In_This_Economy_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = In_This_Economy_App.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -22,6 +30,9 @@
 		380D40B6307961EE00CB2784 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				3817455F308949A400821CDC /* InflationKit in Frameworks */,
+				3817456230894A0D00821CDC /* InflationKit in Frameworks */,
+				3817455C308948B000821CDC /* InflationKit in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -32,6 +43,7 @@
 			children = (
 				380D40BB307961EE00CB2784 /* In This Economy? */,
 				380D40DD307A8DA400CB2784 /* In This Economy?.app */,
+				381745473089391B00821CDC /* In_This_Economy_App.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,6 +64,11 @@
 				380D40BB307961EE00CB2784 /* In This Economy? */,
 			);
 			name = "In This Economy?";
+			packageProductDependencies = (
+				3817455B308948B000821CDC /* InflationKit */,
+				3817455E308949A400821CDC /* InflationKit */,
+				3817456130894A0D00821CDC /* InflationKit */,
+			);
 			productName = "In This Economy?";
 			productReference = 380D40DD307A8DA400CB2784 /* In This Economy?.app */;
 			productType = "com.apple.product-type.application";
@@ -80,6 +97,9 @@
 			);
 			mainGroup = 380D40B0307961EE00CB2784;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3817456030894A0D00821CDC /* XCLocalSwiftPackageReference "../InflationKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 380D40B0307961EE00CB2784;
 			projectDirPath = "";
@@ -102,6 +122,7 @@
 		380D40B5307961EE00CB2784 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				381745513089391B00821CDC /* In_This_Economy_App.swift in Sources */,
 			);
 		};
 /* End PBXSourcesBuildPhase section */
@@ -337,6 +358,28 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		3817456030894A0D00821CDC /* XCLocalSwiftPackageReference "../InflationKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../InflationKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3817455B308948B000821CDC /* InflationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InflationKit;
+		};
+		3817455E308949A400821CDC /* InflationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InflationKit;
+		};
+		3817456130894A0D00821CDC /* InflationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InflationKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 380D40B1307961EE00CB2784 /* Project object */;
 	validationLevel = 1;

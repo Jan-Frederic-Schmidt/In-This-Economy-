@@ -15,12 +15,14 @@
 //    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import Foundation
+import InflationKit
 import SwiftUI
 
 extension AdjustmentView {
     @Observable
     class ViewModel {
         var country: Country = .unitedStates
+        var inflationCalculator = InflationCalculator()
         
         var startDate = Date.now
         var endDate = Date.now
@@ -29,14 +31,14 @@ extension AdjustmentView {
         var calculatedAmount = ""
         
         func getPrice() {
-            InflationCalculator.shared.country = country
-            InflationCalculator.shared.start = startDate
-            InflationCalculator.shared.end = endDate
-            InflationCalculator.shared.amount = originalAmount
+            inflationCalculator.country = country
+            inflationCalculator.start = startDate
+            inflationCalculator.end = endDate
+            inflationCalculator.amount = originalAmount
             
             Task {
                 do {
-                    (calculatedAmount, _) = try await InflationCalculator.shared.calculatePrice()
+                    (calculatedAmount, _) = try await inflationCalculator.calculatePrice()
                 } catch {
                     calculatedAmount = "Oops. something went wrong"
                 }

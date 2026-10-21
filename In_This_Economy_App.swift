@@ -21,17 +21,11 @@ import SwiftUI
 struct In_This_Economy_App: App {
     @Environment(\.openWindow) var openWindow
     @State var isFloating = false
+    @FocusedValue(AdjustmentView.ViewModel.self) var adjustmentViewModel: AdjustmentView.ViewModel?
+    @FocusedValue(RateView.ViewModel.self) var rateViewModel: RateView.ViewModel?
+    
     
     var body: some Scene {
-        Window("About In This Economy", id: "about") {
-            AboutView()
-                .containerBackground(.ultraThickMaterial, for: .window)
-                .windowMinimizeBehavior(.disabled)
-                .windowFullScreenBehavior(.disabled)
-                .windowResizeBehavior(.disabled)
-        }
-            .windowResizability(.contentSize)
-        
         WindowGroup {
             ContentView()
                 .windowResizeBehavior(.disabled)
@@ -51,16 +45,24 @@ struct In_This_Economy_App: App {
             }
             
             CommandGroup(after: .pasteboard) {
-                Button("Copy output") {
-                    let (str, _) = InflationCalculator.shared.calculatedPrice
-                    if let str {
-                        NSPasteboard.general.clearContents()
-                        NSPasteboard.general.setString(str, forType: .string)
-                    }
+                if let adjustmentViewModel {
+                    Button("Copy output", action: adjustmentViewModel.copyToClipboard)
+                        .keyboardShortcut("C", modifiers: [.option, .command])
+                } else if let rateViewModel {
+                    Button("Copy output", action: rateViewModel.copyToClipboard)
+                        .keyboardShortcut("C", modifiers: [.option, .command])
                 }
-                .keyboardShortcut("C", modifiers: [.option, .command])
             }
         }
+        
+        Window("About In This Economy", id: "about") {
+            AboutView()
+                .containerBackground(.ultraThickMaterial, for: .window)
+                .windowMinimizeBehavior(.disabled)
+                .windowFullScreenBehavior(.disabled)
+                .windowResizeBehavior(.disabled)
+        }
+            .windowResizability(.contentSize)
     }
     
     init() {

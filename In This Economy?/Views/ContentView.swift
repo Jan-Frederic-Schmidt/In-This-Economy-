@@ -14,7 +14,7 @@
 //    with this program; if not, write to the Free Software Foundation, Inc.,
 //    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
                         
-                        
+import TipKit
 import SwiftUI
 
 struct ContentView: View {
@@ -23,7 +23,6 @@ struct ContentView: View {
     }
 
     @State private var screen = Screens.adjust
-    @State var isFloating = false
     
     var body: some View {
         Group {
@@ -31,7 +30,7 @@ struct ContentView: View {
             case .adjust:
                 AdjustmentView()
             case .rate:
-                Text("Hello, world")
+                RateView()
             }
         }
         .toolbar {

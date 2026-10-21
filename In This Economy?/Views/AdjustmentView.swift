@@ -15,6 +15,7 @@
 //    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import Foundation
+import InflationKit
 import SwiftUI
 
 struct AdjustmentView: View {
@@ -29,9 +30,8 @@ struct AdjustmentView: View {
         VStack {
             HStack {
                 VStack(alignment: .leading) {
-                    if #available(macOS 27.0, *) {
-                        TextField("Enter amount", value: $viewModel.originalAmount, format: .number.decimalSeparator(strategy: .automatic))
-                    }
+                    TextField("Enter amount", value: $viewModel.originalAmount, format: .number.decimalSeparator(strategy: .automatic))
+                        .onSubmit(viewModel.getPrice)
                     
                     Picker("Pick a country", selection: $viewModel.country) {
                         ForEach(Country.allCases, id: \.self) {
@@ -70,6 +70,7 @@ struct AdjustmentView: View {
                     }
                     .buttonStyle(.plain)
                     .help("Copy")
+                    .disabled(viewModel.calculatedAmount.isEmpty)
                 }
             }
             
@@ -78,6 +79,7 @@ struct AdjustmentView: View {
         }
         .padding()
         .navigationTitle("Adjust for inflation")
+        .focusedSceneValue(viewModel)
     }
 }
 
