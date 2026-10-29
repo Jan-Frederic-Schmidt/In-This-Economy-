@@ -3,6 +3,14 @@
     <channel>
         <title>In This Economy?</title>
         <item>
+            <title>1.0 Alpha 4</title>
+            <pubDate>Fri, 30 Oct 2026 00:40:01 +0100</pubDate>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>1.0 Alpha 4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://raw.githubusercontent.com/Jan-Frederic-Schmidt/In-This-Economy-/main/In%20This%20Economy%3F/Versions/v1.0a4.zip" length="3253107" type="application/octet-stream" sparkle:edSignature="sIVCtPwPmszmz/ph2ORgLlNjAbpPIsJwmBHz8UqRuVmuFAYhud1iWvgBBMu4LjjT7knaGpOoRA5wneBFhFj8Bg=="/>
+        </item>
+        <item>
             <title>0.1.3</title>
             <pubDate>Fri, 30 Oct 2026 00:14:47 +0100</pubDate>
             <sparkle:version>1</sparkle:version>
