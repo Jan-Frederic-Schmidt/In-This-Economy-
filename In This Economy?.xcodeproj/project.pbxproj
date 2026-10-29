@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		381745513089391B00821CDC /* In_This_Economy_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381745473089391B00821CDC /* In_This_Economy_App.swift */; };
 		3817455C308948B000821CDC /* InflationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3817455B308948B000821CDC /* InflationKit */; };
 		3817455F308949A400821CDC /* InflationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3817455E308949A400821CDC /* InflationKit */; };
 		3817456230894A0D00821CDC /* InflationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3817456130894A0D00821CDC /* InflationKit */; };
@@ -16,25 +15,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		380D40DD307A8DA400CB2784 /* In This Economy?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "In This Economy?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		381745473089391B00821CDC /* In_This_Economy_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = In_This_Economy_App.swift; sourceTree = "<group>"; };
+		380D40DD307A8DA400CB2784 /* In This Economy?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "In This Economy?.app"; path = "../../../../../../../../../../Volumes/Jan1TB/Coding/Swift/In This Economy?/In This Economy?/In This Economy?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E4E31530940830002E2EA2 /* In-This-Economy--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "In-This-Economy--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		38E4E34130940D93002E2EA2 /* Exceptions for "In This Economy?" folder in "In This Economy?" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"../../../../../../../../../../Volumes/Jan1TB/Coding/Swift/In This Economy?/In This Economy?/In This Economy?.app",
+			);
+			target = 380D40B8307961EE00CB2784 /* In This Economy? */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		380D40BB307961EE00CB2784 /* In This Economy? */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				38E4E34130940D93002E2EA2 /* Exceptions for "In This Economy?" folder in "In This Economy?" target */,
+			);
+			explicitFileTypes = {
+				"../../../../../../../../../../Volumes/Jan1TB/Coding/Swift/In This Economy?/In This Economy?/In This Economy?.app" = wrapper.application;
+			};
 			path = "In This Economy?";
-			sourceTree = "<group>";
-		};
-		38E4E31230940611002E2EA2 /* Updates */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Updates;
-			sourceTree = "<group>";
-		};
-		38ED3B2F3090BCD700930607 /* Menu Bar Utility */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Menu Bar Utility";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -58,10 +62,6 @@
 			children = (
 				38E4E31530940830002E2EA2 /* In-This-Economy--Info.plist */,
 				380D40BB307961EE00CB2784 /* In This Economy? */,
-				380D40DD307A8DA400CB2784 /* In This Economy?.app */,
-				38ED3B2F3090BCD700930607 /* Menu Bar Utility */,
-				381745473089391B00821CDC /* In_This_Economy_App.swift */,
-				38E4E31230940611002E2EA2 /* Updates */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,8 +80,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				380D40BB307961EE00CB2784 /* In This Economy? */,
-				38E4E31230940611002E2EA2 /* Updates */,
-				38ED3B2F3090BCD700930607 /* Menu Bar Utility */,
 			);
 			name = "In This Economy?";
 			packageProductDependencies = (
@@ -145,7 +143,6 @@
 		380D40B5307961EE00CB2784 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
-				381745513089391B00821CDC /* In_This_Economy_App.swift in Sources */,
 			);
 		};
 /* End PBXSourcesBuildPhase section */
