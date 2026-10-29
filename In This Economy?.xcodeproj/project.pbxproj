@@ -15,29 +15,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		380D40DD307A8DA400CB2784 /* In This Economy?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "In This Economy?.app"; path = "../../../../../../../../../../Volumes/Jan1TB/Coding/Swift/In This Economy?/In This Economy?/In This Economy?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		380D40DD307A8DA400CB2784 /* In This Economy?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "In This Economy?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E4E31530940830002E2EA2 /* In-This-Economy--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "In-This-Economy--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		38E4E34130940D93002E2EA2 /* Exceptions for "In This Economy?" folder in "In This Economy?" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"../../../../../../../../../../Volumes/Jan1TB/Coding/Swift/In This Economy?/In This Economy?/In This Economy?.app",
-			);
-			target = 380D40B8307961EE00CB2784 /* In This Economy? */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		380D40BB307961EE00CB2784 /* In This Economy? */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				38E4E34130940D93002E2EA2 /* Exceptions for "In This Economy?" folder in "In This Economy?" target */,
-			);
-			explicitFileTypes = {
-				"../../../../../../../../../../Volumes/Jan1TB/Coding/Swift/In This Economy?/In This Economy?/In This Economy?.app" = wrapper.application;
-			};
 			path = "In This Economy?";
 			sourceTree = "<group>";
 		};
@@ -62,6 +46,7 @@
 			children = (
 				38E4E31530940830002E2EA2 /* In-This-Economy--Info.plist */,
 				380D40BB307961EE00CB2784 /* In This Economy? */,
+				380D40DD307A8DA400CB2784 /* In This Economy?.app */,
 			);
 			sourceTree = "<group>";
 		};
