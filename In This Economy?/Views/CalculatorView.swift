@@ -14,24 +14,20 @@
 //    with this program; if not, write to the Free Software Foundation, Inc.,
 //    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import Foundation
 import InflationKit
 import SwiftUI
 
-struct AdjustmentView: View {
-    @State private var viewModel = ViewModel()
-    var formatter: NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        return formatter
-    }
+struct CalculatorView: View {
+    @State var viewModel: InflationCalculatorViewModel
     
     var body: some View {
         VStack {
             HStack {
                 VStack(alignment: .leading) {
-                    TextField("Enter amount", value: $viewModel.originalAmount, format: .number.decimalSeparator(strategy: .automatic))
-                        .onSubmit(viewModel.getPrice)
+                    if type(of: viewModel) != RateViewModel.self {
+                        TextField("Enter amount", value: $viewModel.amount, format: .number.decimalSeparator(strategy: .automatic))
+                            .onSubmit(viewModel.calculate)
+                    }
                     
                     Picker("Pick a country", selection: $viewModel.country) {
                         ForEach(Country.allCases, id: \.self) {
@@ -43,7 +39,7 @@ struct AdjustmentView: View {
                     
                     DatePicker("Choose an end date", selection: $viewModel.endDate, displayedComponents: .date)
                     
-                    Button("Calculate", action: viewModel.getPrice)
+                    Button("Calculate", action: viewModel.calculate)
                         .buttonStyle(.borderedProminent)
                 }
                 .padding()
@@ -51,13 +47,12 @@ struct AdjustmentView: View {
                 .background(.regularMaterial, in: .rect(cornerRadius: 20))
                 
                 Group {
-                    if viewModel.calculatedAmount.isEmpty {
-                        ContentUnavailableView("Nothing calculated yet", systemImage: "nosign", description: Text("Choose a starting amount, a country and start & end dates and click on \"calculate\"."))
-                    } else {
-                        Text(viewModel.calculatedAmount)
+                    if let result = viewModel.result {
+                        Text(result)
                             .font(.system(size: 45)).bold()
                             .textSelection(.enabled)
-                            
+                    } else {
+                        ContentUnavailableView("Nothing calculated yet", systemImage: "nosign", description: Text("Choose a starting amount, a country and start & end dates and click on \"calculate\"."))
                     }
                 }
                 .frame(width: 275, height: 200)
@@ -70,7 +65,7 @@ struct AdjustmentView: View {
                     }
                     .buttonStyle(.plain)
                     .help("Copy")
-                    .disabled(viewModel.calculatedAmount.isEmpty)
+                    .disabled(viewModel.result == nil)
                 }
             }
             
@@ -81,9 +76,5 @@ struct AdjustmentView: View {
         .navigationTitle("Adjust for inflation")
         .focusedSceneValue(viewModel)
     }
-}
-
-#Preview {
-    AdjustmentView()
 }
 

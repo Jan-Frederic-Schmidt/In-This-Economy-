@@ -11,11 +11,14 @@
 		3817455C308948B000821CDC /* InflationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3817455B308948B000821CDC /* InflationKit */; };
 		3817455F308949A400821CDC /* InflationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3817455E308949A400821CDC /* InflationKit */; };
 		3817456230894A0D00821CDC /* InflationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3817456130894A0D00821CDC /* InflationKit */; };
+		3829205C308951D4009A7CD1 /* InflationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3829205B308951D4009A7CD1 /* InflationKit */; };
+		38E4E30F3094059F002E2EA2 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 38E4E30E3094059F002E2EA2 /* Sparkle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		380D40DD307A8DA400CB2784 /* In This Economy?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "In This Economy?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		381745473089391B00821CDC /* In_This_Economy_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = In_This_Economy_App.swift; sourceTree = "<group>"; };
+		38E4E31530940830002E2EA2 /* In-This-Economy--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "In-This-Economy--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -24,12 +27,24 @@
 			path = "In This Economy?";
 			sourceTree = "<group>";
 		};
+		38E4E31230940611002E2EA2 /* Updates */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Updates;
+			sourceTree = "<group>";
+		};
+		38ED3B2F3090BCD700930607 /* Menu Bar Utility */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Menu Bar Utility";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		380D40B6307961EE00CB2784 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				38E4E30F3094059F002E2EA2 /* Sparkle in Frameworks */,
+				3829205C308951D4009A7CD1 /* InflationKit in Frameworks */,
 				3817455F308949A400821CDC /* InflationKit in Frameworks */,
 				3817456230894A0D00821CDC /* InflationKit in Frameworks */,
 				3817455C308948B000821CDC /* InflationKit in Frameworks */,
@@ -41,9 +56,12 @@
 		380D40B0307961EE00CB2784 = {
 			isa = PBXGroup;
 			children = (
+				38E4E31530940830002E2EA2 /* In-This-Economy--Info.plist */,
 				380D40BB307961EE00CB2784 /* In This Economy? */,
 				380D40DD307A8DA400CB2784 /* In This Economy?.app */,
+				38ED3B2F3090BCD700930607 /* Menu Bar Utility */,
 				381745473089391B00821CDC /* In_This_Economy_App.swift */,
+				38E4E31230940611002E2EA2 /* Updates */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,12 +80,16 @@
 			);
 			fileSystemSynchronizedGroups = (
 				380D40BB307961EE00CB2784 /* In This Economy? */,
+				38E4E31230940611002E2EA2 /* Updates */,
+				38ED3B2F3090BCD700930607 /* Menu Bar Utility */,
 			);
 			name = "In This Economy?";
 			packageProductDependencies = (
 				3817455B308948B000821CDC /* InflationKit */,
 				3817455E308949A400821CDC /* InflationKit */,
 				3817456130894A0D00821CDC /* InflationKit */,
+				3829205B308951D4009A7CD1 /* InflationKit */,
+				38E4E30E3094059F002E2EA2 /* Sparkle */,
 			);
 			productName = "In This Economy?";
 			productReference = 380D40DD307A8DA400CB2784 /* In This Economy?.app */;
@@ -98,7 +120,8 @@
 			mainGroup = 380D40B0307961EE00CB2784;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				3817456030894A0D00821CDC /* XCLocalSwiftPackageReference "../InflationKit" */,
+				3829205A308951D4009A7CD1 /* XCLocalSwiftPackageReference "../InflationKit" */,
+				38E4E30D3094059F002E2EA2 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 380D40B0307961EE00CB2784;
@@ -275,13 +298,15 @@
 				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_FILE = "In-This-Economy--Info.plist";
+				INFOPLIST_KEY_LSUIElement = NO;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "This program is an inflation calculator used to adjust prices for inflation\n                 \n                 Copyright © 2026 Jan Frédéric Schmidt\n                 \n                 This program is free software; you can redistribute it and/or modify\n                 it under the terms of the GNU General Public License as published by\n                 the Free Software Foundation; either version 2 of the License, or\n                 (at your option) any later version.\n                 \n                 This program is distributed in the hope that it will be useful,\n                 but WITHOUT ANY WARRANTY; without even the implied warranty of\n                 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n                 GNU General Public License for more details.\n                 \n                 You should have received a copy of the GNU General Public License along\n                 with this program; if not, write to the Free Software Foundation, Inc.,\n                 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = "1.0 Alpha 2";
+				MARKETING_VERSION = 0.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.janfredericschmidt.In-This-Economy-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -319,13 +344,15 @@
 				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_FILE = "In-This-Economy--Info.plist";
+				INFOPLIST_KEY_LSUIElement = NO;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "This program is an inflation calculator used to adjust prices for inflation\n                 \n                 Copyright © 2026 Jan Frédéric Schmidt\n                 \n                 This program is free software; you can redistribute it and/or modify\n                 it under the terms of the GNU General Public License as published by\n                 the Free Software Foundation; either version 2 of the License, or\n                 (at your option) any later version.\n                 \n                 This program is distributed in the hope that it will be useful,\n                 but WITHOUT ANY WARRANTY; without even the implied warranty of\n                 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n                 GNU General Public License for more details.\n                 \n                 You should have received a copy of the GNU General Public License along\n                 with this program; if not, write to the Free Software Foundation, Inc.,\n                 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = "1.0 Alpha 2";
+				MARKETING_VERSION = 0.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.janfredericschmidt.In-This-Economy-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -360,11 +387,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		3817456030894A0D00821CDC /* XCLocalSwiftPackageReference "../InflationKit" */ = {
+		3829205A308951D4009A7CD1 /* XCLocalSwiftPackageReference "../InflationKit" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../InflationKit;
 		};
 /* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		38E4E30D3094059F002E2EA2 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		3817455B308948B000821CDC /* InflationKit */ = {
@@ -378,6 +416,15 @@
 		3817456130894A0D00821CDC /* InflationKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = InflationKit;
+		};
+		3829205B308951D4009A7CD1 /* InflationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InflationKit;
+		};
+		38E4E30E3094059F002E2EA2 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38E4E30D3094059F002E2EA2 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

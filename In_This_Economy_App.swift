@@ -15,17 +15,20 @@
 //    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import TipKit
+import Sparkle
 import SwiftUI
 
 @main
 struct In_This_Economy_App: App {
     @Environment(\.openWindow) var openWindow
-    @State var isFloating = false
-    @FocusedValue(AdjustmentView.ViewModel.self) var adjustmentViewModel: AdjustmentView.ViewModel?
-    @FocusedValue(RateView.ViewModel.self) var rateViewModel: RateView.ViewModel?
+    @FocusedValue(InflationCalculatorViewModel.self) var adjustmentViewModel: InflationCalculatorViewModel?
+    @FocusedValue(RateViewModel.self) var rateViewModel: RateViewModel?
     
+    @State var isFloating = false
+    private let updaterController: SPUStandardUpdaterController
     
     var body: some Scene {
+        // Windows
         WindowGroup {
             ContentView()
                 .windowResizeBehavior(.disabled)
@@ -42,6 +45,10 @@ struct In_This_Economy_App: App {
                 Button("About In This Economy") {
                     openWindow(id: "about")
                 }
+            }
+            
+            CommandGroup(after: .appInfo) {
+                CheckForUpdatesView(updater: updaterController.updater)
             }
             
             CommandGroup(after: .pasteboard) {
@@ -63,9 +70,19 @@ struct In_This_Economy_App: App {
                 .windowResizeBehavior(.disabled)
         }
             .windowResizability(.contentSize)
+        
+        // Menu bar
+        MenuBarExtra("In This Economy?", systemImage: "chart.line.uptrend.xyaxis") {
+            MenuBarView()
+        }
+        .menuBarExtraStyle(.window)
     }
     
     init() {
+        // If you want to start the updater manually, pass false to startingUpdater and call .startUpdater() later
+        // This is where you can also pass an updater delegate if you need one
+        updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
+        
         do {
             try Tips.configure()
         } catch {

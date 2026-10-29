@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>In This Economy?</title>
+        <item>
+            <title>0.1.3</title>
+            <pubDate>Fri, 30 Oct 2026 00:14:47 +0100</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>0.1.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <enclosure url="In%20This%20Economy%3F.zip" length="1108469" type="application/octet-stream" sparkle:edSignature="T/x39EncV17Z104ZloQCINdQ+ANS/MzW2gKlSkEKb4BKGGgPg7uBg77zRV4PKZu5BVddH52wNWWlw7LpmOhDCA=="/>
+        </item>
+    </channel>
+</rss>

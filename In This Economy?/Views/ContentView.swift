@@ -28,9 +28,9 @@ struct ContentView: View {
         Group {
             switch screen {
             case .adjust:
-                AdjustmentView()
+                CalculatorView(viewModel: InflationCalculatorViewModel())
             case .rate:
-                RateView()
+                CalculatorView(viewModel: RateViewModel())
             }
         }
         .toolbar {
@@ -53,33 +53,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
-//enum Screens {
-//    case calculator, rate
-//}
-//
-//@State private var screen = Screens.calculator
-//
-//var body: some View {
-//    Group {
-//        switch screen {
-//        case .calculator:
-//            CalculatorView()
-//        case .rate:
-//            Text("Hello, world")
-//        }
-//    }
-//    .padding()
-//    .toolbar {
-//        ToolbarItem(placement: .navigation) {
-//            Picker("What do you want to do?", selection: $screen) {
-//                Label("Adjust for inflation", systemImage: "dollarsign.circle.fill")
-//                    .tag(Screens.calculator)
-//                
-//                Label("Get the inflation rate", systemImage: "chart.line.uptrend.xyaxis")
-//                    .tag(Screens.rate)
-//            }
-//            .pickerStyle(.segmented)
-//        }
-//    }
-//}

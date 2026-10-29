@@ -18,36 +18,34 @@ import Foundation
 import InflationKit
 import SwiftUI
 
-extension AdjustmentView {
-    @Observable
-    class ViewModel {
-        var country: Country = .unitedStates
-        var inflationCalculator = InflationCalculator()
+@Observable
+class InflationCalculatorViewModel {
+    var inflationCalculator = InflationCalculator()
+    var amount = 100.0
+    var country = Country.unitedStates
+    var startDate = Date.now
+    var endDate = Date.now
+    var result: String? = nil
+    
+    func calculate() {
+        inflationCalculator.amount = amount
+        inflationCalculator.country = country
+        inflationCalculator.start = startDate
+        inflationCalculator.end = endDate
         
-        var startDate = Date.now
-        var endDate = Date.now
-        var originalAmount = 100.0
-        
-        var calculatedAmount = ""
-        
-        func getPrice() {
-            inflationCalculator.country = country
-            inflationCalculator.start = startDate
-            inflationCalculator.end = endDate
-            inflationCalculator.amount = originalAmount
-            
-            Task {
-                do {
-                    (calculatedAmount, _) = try await inflationCalculator.calculatePrice()
-                } catch {
-                    calculatedAmount = "Oops. something went wrong"
-                }
+        Task {
+            do {
+                (result, _) = try await inflationCalculator.calculatePrice()
+            } catch {
+                result = "There was an error"
             }
         }
-        
-        func copyToClipboard() {
+    }
+    
+    func copyToClipboard() {
+        if let result {
             NSPasteboard.general.clearContents()
-            NSPasteboard.general.setString(calculatedAmount, forType: .string)
+            NSPasteboard.general.setString(result, forType: .string)
         }
     }
 }
