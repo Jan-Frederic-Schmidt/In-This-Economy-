@@ -40,7 +40,7 @@ struct CalculatorView: View {
                     DatePicker("Choose an end date", selection: $viewModel.endDate, displayedComponents: .date)
                     
                     Button("Calculate", action: viewModel.calculate)
-                        .buttonStyle(.borderedProminent)
+                        .buttonStyle(.glassProminent)
                 }
                 .padding()
                 .frame(width: 275, height: 200)

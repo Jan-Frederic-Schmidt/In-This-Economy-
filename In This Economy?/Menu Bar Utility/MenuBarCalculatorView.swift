@@ -19,10 +19,11 @@ struct MenuBarCalculatorView: View {
                 Spacer()
                 
                 Button(action: viewModel.copyToClipboard) {
-                    Label(viewModel.result ?? "N/A", systemImage: "rectangle.portrait.on.rectangle.portrait")
+                    Label(viewModel.result ?? "No value yet", systemImage: "rectangle.portrait.on.rectangle.portrait")
                         .font(.title2.bold())
                 }
                 .buttonStyle(.plain)
+                .disabled(viewModel.result != nil)
                 
                 Spacer()
             }
